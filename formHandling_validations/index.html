@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3</title>
+</head>
+<body>
+  <form id="myForm"></form>
+  <input type="text" id="username" placeholder="your username">
+  <input type ="number" id ="age"  placeholder="your age">
+<button type="submit">click me</button>
+</form>
+<div id="output"></div>
+  <script>
+    let form =document.getElementById("myForm");
+    
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let username = document.getElementById("username").value;
+  let age = document.getElementById("age").value;
+  let output = document.getElementById("output");
+
+  if(username === "" || age === "") {
+    output.textContent = "Please fill all fields!";
+    output.style.color = "red";
+  } else if(age < 18) {
+    output.textContent = "You must be at least 18!";
+    output.style.color = "orange";
+  } else {
+    output.textContent = `Welcome ${username}, Age: ${age}`;
+    output.style.color = "green";
+  }
+});
+
+  </script>
+</body>
+</html>
